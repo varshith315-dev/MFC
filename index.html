@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Integrated MFC Battery System</title>
+
+    <meta name="description"
+        content="AI Integrated Microbial Fuel Cell Battery System for intelligent energy monitoring and prediction.">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <span class="logo-icon">⚡</span>
+
+            <div>
+
+                <h2>MFC<span>AI</span></h2>
+
+                <small>SMART ENERGY SYSTEM</small>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="#home">Home</a>
+
+            <a href="#dashboard">Dashboard</a>
+
+            <a href="#analytics">Analytics</a>
+
+            <a href="#history">History</a>
+
+            <a href="#system-status">System</a>
+
+            <a href="#about">About</a>
+
+        </nav>
+
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            System Online
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="section-tag">
+                AI-POWERED ENERGY MONITORING
+            </span>
+
+
+            <h1>
+
+                AI Integrated
+
+                <span>
+                    MFC Battery System
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Intelligent monitoring and machine-learning-based
+                prediction for microbial fuel cell energy storage systems.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" onclick="scrollToDashboard()">
+
+                    View Live Dashboard
+
+                </button>
+
+
+                <a href="#about" class="secondary-btn">
+
+                    Explore Project
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hero-energy">
+
+            <div class="energy-orbit orbit-one"></div>
+
+            <div class="energy-orbit orbit-two"></div>
+
+
+            <div class="energy-circle">
+
+                <div class="energy-icon">
+                    ⚡
+                </div>
+
+                <div class="energy-text">
+                    AI ENERGY
+                </div>
+
+                <div class="energy-subtext">
+                    INTELLIGENCE
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DASHBOARD
+         ===================================================== -->
+
+    <section class="dashboard-section" id="dashboard">
+
+
+        <div class="section-title">
+
+            <span class="section-tag">
+                LIVE MONITORING
+            </span>
+
+
+            <h2>
+                Energy Dashboard
+            </h2>
+
+
+            <p>
+                Real-time measurements received from the ESP32 sensor system
+            </p>
+
+        </div>
+
+
+
+        <div class="dashboard-grid">
+
+
+            <!-- Battery -->
+
+            <div class="metric-card">
+
+                <div class="metric-header">
+
+                    <div class="metric-icon">
+                        🔋
+                    </div>
+
+                    <span class="metric-status">
+                        LIVE
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Battery Voltage
+                </h3>
+
+
+                <div class="metric-value" id="batteryValue">
+                    4.03 V
+                </div>
+
+
+                <div class="metric-bar">
+
+                    <div class="metric-bar-fill" id="batteryBar" style="width:86%;">
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Li-ion Energy Storage
+                </p>
+
+            </div>
+
+
+
+            <!-- MFC -->
+
+            <div class="metric-card">
+
+                <div class="metric-header">
+
+                    <div class="metric-icon">
+                        ⚡
+                    </div>
+
+                    <span class="metric-status">
+                        INPUT
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    MFC Voltage
+                </h3>
+
+
+                <div class="metric-value" id="mfcValue">
+                    4.01 V
+                </div>
+
+
+                <p>
+                    Simulated MFC Input
+                </p>
+
+
+                <div class="simulation-badge">
+                    SIMULATION MODE
+                </div>
+
+            </div>
+
+
+
+            <!-- Temperature -->
+
+            <div class="metric-card">
+
+                <div class="metric-header">
+
+                    <div class="metric-icon">
+                        🌡️
+                    </div>
+
+                    <span class="metric-status">
+                        LIVE
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Temperature
+                </h3>
+
+
+                <div class="metric-value" id="temperatureValue">
+                    30.60 °C
+                </div>
+
+
+                <p>
+                    DS18B20 Temperature Sensor
+                </p>
+
+            </div>
+
+
+
+            <!-- Prediction -->
+
+            <div class="metric-card">
+
+                <div class="metric-header">
+
+                    <div class="metric-icon">
+                        🧠
+                    </div>
+
+                    <span class="metric-status">
+                        AI
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Predicted Battery
+                </h3>
+
+
+                <div class="metric-value" id="predictionValue">
+                    4.03 V
+                </div>
+
+
+                <p>
+                    Random Forest Prediction
+                </p>
+
+
+                <div class="prediction-change stable" id="predictionChange">
+
+                    +0.000 V
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="last-updated" id="lastUpdated">
+
+            ● Waiting for live sensor data...
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ANALYTICS
+         ===================================================== -->
+
+    <section class="analytics-section" id="analytics">
+
+
+        <div class="section-title">
+
+            <span class="section-tag">
+                DATA ANALYTICS
+            </span>
+
+
+            <h2>
+                Energy Analytics
+            </h2>
+
+
+            <p>
+                Real-time voltage and temperature trends
+            </p>
+
+        </div>
+
+
+
+        <div class="chart-container">
+
+
+            <div class="chart-header">
+
+                <div>
+
+                    <h3>
+                        Voltage & Temperature Trends
+                    </h3>
+
+                    <p>
+                        Real-time sensor monitoring
+                    </p>
+
+                </div>
+
+
+                <div class="legend">
+
+
+                    <span class="legend-item battery-legend">
+
+                        <span class="legend-dot"></span>
+
+                        Battery
+
+                    </span>
+
+
+                    <span class="legend-item mfc-legend">
+
+                        <span class="legend-dot"></span>
+
+                        MFC
+
+                    </span>
+
+
+                    <span class="legend-item temperature-legend">
+
+                        <span class="legend-dot"></span>
+
+                        Temperature
+
+                    </span>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="chart">
+
+                <canvas id="energyChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         AI PREDICTION
+         ===================================================== -->
+
+    <section class="ai-section">
+
+
+        <!-- Main AI Prediction -->
+
+        <div class="ai-box">
+
+
+            <div class="ai-icon">
+                🧠
+            </div>
+
+
+            <div class="ai-content">
+
+
+                <span class="section-tag">
+                    MACHINE LEARNING
+                </span>
+
+
+                <h2>
+                    AI Battery Prediction
+                </h2>
+
+
+                <p>
+
+                    Random Forest Regression analyzes temperature,
+                    battery voltage and MFC input to predict the
+                    next battery voltage.
+
+                </p>
+
+
+
+                <div class="ai-result">
+
+
+                    <div>
+
+                        <span>
+                            Predicted Battery Voltage
+                        </span>
+
+
+                        <strong id="aiResult">
+                            4.03 V
+                        </strong>
+
+                    </div>
+
+
+                    <div class="model-status">
+
+                        <span class="health-dot active"></span>
+
+                        AI Model Active
+
+                    </div>
+
+
+                </div>
+
+
+
+                <button class="primary-btn" onclick="runPrediction()">
+
+                    Run AI Prediction
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PREDICTION EVIDENCE
+             ================================================= -->
+
+        <div class="prediction-evidence">
+
+
+            <div class="evidence-header">
+
+
+                <div>
+
+                    <span class="section-tag">
+                        PREDICTION EVIDENCE
+                    </span>
+
+
+                    <h3>
+                        AI Prediction Analysis
+                    </h3>
+
+
+                    <p>
+                        Live input parameters and model output used
+                        for the latest prediction
+                    </p>
+
+                </div>
+
+
+                <div class="prediction-status" id="predictionStatus">
+
+                    <span class="health-dot active"></span>
+
+                    Ready
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Input / Output Cards -->
+
+            <div class="evidence-grid">
+
+
+                <!-- Temperature -->
+
+                <div class="evidence-card">
+
+                    <span>
+                        Temperature Input
+                    </span>
+
+
+                    <strong id="evidenceTemperature">
+                        29.06 °C
+                    </strong>
+
+
+                    <small>
+                        DS18B20 Sensor
+                    </small>
+
+                </div>
+
+
+
+                <!-- Battery -->
+
+                <div class="evidence-card">
+
+                    <span>
+                        Current Battery
+                    </span>
+
+
+                    <strong id="evidenceBattery">
+                        4.03 V
+                    </strong>
+
+
+                    <small>
+                        ESP32 ADC Measurement
+                    </small>
+
+                </div>
+
+
+
+                <!-- MFC -->
+
+                <div class="evidence-card">
+
+                    <span>
+                        MFC Input
+                    </span>
+
+
+                    <strong id="evidenceMFC">
+                        4.01 V
+                    </strong>
+
+
+                    <small>
+                        Simulated Input
+                    </small>
+
+                </div>
+
+
+
+                <!-- Prediction -->
+
+                <div class="evidence-card highlight">
+
+                    <span>
+                        Predicted Battery
+                    </span>
+
+
+                    <strong id="evidencePrediction">
+                        4.03 V
+                    </strong>
+
+
+                    <small>
+                        Random Forest Output
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- Prediction Comparison -->
+
+            <div class="prediction-comparison">
+
+
+                <div>
+
+                    <span>
+                        Current Battery
+                    </span>
+
+
+                    <strong id="comparisonCurrent">
+                        4.03 V
+                    </strong>
+
+                </div>
+
+
+                <div class="comparison-arrow">
+                    →
+                </div>
+
+
+                <div>
+
+                    <span>
+                        AI Prediction
+                    </span>
+
+
+                    <strong id="comparisonPrediction">
+                        4.03 V
+                    </strong>
+
+                </div>
+
+
+                <div class="comparison-change">
+
+                    <span>
+                        Predicted Change
+                    </span>
+
+
+                    <strong id="comparisonChange">
+                        +0.000 V
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- Model Information -->
+
+            <div class="model-information">
+
+
+                <div>
+
+                    <span>
+                        MODEL
+                    </span>
+
+
+                    <strong>
+                        Random Forest Regression
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        INPUT FEATURES
+                    </span>
+
+
+                    <strong>
+                        Temperature • Battery • MFC
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        STATUS
+                    </span>
+
+
+                    <strong class="success-text" id="evidenceSuccess">
+
+                        Prediction Successful
+
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        LAST RUN
+                    </span>
+
+
+                    <strong id="predictionTime">
+                        Waiting...
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SENSOR READING HISTORY
+         ===================================================== -->
+
+    <section class="history-section" id="history">
+
+
+        <div class="section-title">
+
+            <span class="section-tag">
+                DATA LOGGING
+            </span>
+
+
+            <h2>
+                Sensor Reading History
+            </h2>
+
+
+            <p>
+                Recent ESP32 measurements and AI predictions recorded during
+                the current monitoring session
+            </p>
+
+        </div>
+
+
+
+        <div class="history-container">
+
+
+            <!-- History Header -->
+
+            <div class="history-header">
+
+
+                <div>
+
+                    <h3>
+                        Recent Sensor Readings
+                    </h3>
+
+                    <p>
+                        MFC values are clearly marked as simulated input.
+                    </p>
+
+                </div>
+
+
+                <div class="history-actions">
+
+                    <span class="reading-count" id="readingCount">
+                        0 readings
+                    </span>
+
+
+                    <button class="secondary-btn export-btn" onclick="exportHistoryCSV()">
+
+                        ⬇ Export CSV
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Table -->
+
+            <div class="history-table-wrapper">
+
+                <table class="history-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                #
+                            </th>
+
+                            <th>
+                                Time
+                            </th>
+
+                            <th>
+                                Temperature
+                            </th>
+
+                            <th>
+                                Battery
+                            </th>
+
+                            <th>
+                                Simulated MFC
+                            </th>
+
+                            <th>
+                                AI Prediction
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="historyTableBody">
+
+                        <tr>
+
+                            <td colspan="6" class="empty-history">
+
+                                Waiting for sensor readings...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <!-- Logging Information -->
+
+            <div class="history-info">
+
+
+                <div class="history-info-item">
+
+                    <span class="history-info-icon">
+                        📡
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            ESP32 Data
+                        </strong>
+
+                        <p>
+                            Temperature and battery measurements are received
+                            from the connected ESP32.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="history-info-item">
+
+                    <span class="history-info-icon">
+                        ⚡
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            MFC Input
+                        </strong>
+
+                        <p>
+                            Current MFC voltage is simulated for prototype
+                            demonstration.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="history-info-item">
+
+                    <span class="history-info-icon">
+                        🧠
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            AI Prediction
+                        </strong>
+
+                        <p>
+                            Random Forest output is recorded with each
+                            sensor update.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SYSTEM HEALTH
+         ===================================================== -->
+
+    <section class="status-section" id="system-status">
+
+
+        <div class="section-title">
+
+            <span class="section-tag">
+                SYSTEM MONITORING
+            </span>
+
+
+            <h2>
+                System Health
+            </h2>
+
+
+            <p>
+                Real-time status of connected components and AI services
+            </p>
+
+        </div>
+
+
+
+        <div class="status-grid">
+
+
+            <!-- MFC -->
+
+            <div class="status-card">
+
+                <div class="status-icon">
+                    ⚡
+                </div>
+
+
+                <div class="status-info">
+
+                    <h3>
+                        MFC Energy Source
+                    </h3>
+
+
+                    <p>
+                        Simulated MFC Input
+                    </p>
+
+                </div>
+
+
+                <div class="health-status">
+
+                    <span class="health-dot active"></span>
+
+                    <span>
+                        Active
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Battery -->
+
+            <div class="status-card">
+
+                <div class="status-icon">
+                    🔋
+                </div>
+
+
+                <div class="status-info">
+
+                    <h3>
+                        Battery System
+                    </h3>
+
+
+                    <p>
+                        Li-ion Energy Storage
+                    </p>
+
+                </div>
+
+
+                <div class="health-status">
+
+                    <span class="health-dot active"></span>
+
+                    <span>
+                        Monitoring
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ESP32 -->
+
+            <div class="status-card">
+
+                <div class="status-icon">
+                    📡
+                </div>
+
+
+                <div class="status-info">
+
+                    <h3>
+                        ESP32 Controller
+                    </h3>
+
+
+                    <p>
+                        Temperature & Voltage Sensors
+                    </p>
+
+                </div>
+
+
+                <div class="health-status" id="esp32Status">
+
+                    <span class="health-dot active"></span>
+
+                    <span>
+                        Connected
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AI -->
+
+            <div class="status-card">
+
+                <div class="status-icon">
+                    🧠
+                </div>
+
+
+                <div class="status-info">
+
+                    <h3>
+                        AI Prediction Engine
+                    </h3>
+
+
+                    <p>
+                        Random Forest Regression
+                    </p>
+
+                </div>
+
+
+                <div class="health-status">
+
+                    <span class="health-dot active"></span>
+
+                    <span>
+                        Active
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SYSTEM ARCHITECTURE
+         ===================================================== -->
+
+    <section class="architecture-section">
+
+
+        <div class="section-title">
+
+            <span class="section-tag">
+                SYSTEM ARCHITECTURE
+            </span>
+
+
+            <h2>
+                From Energy Generation to AI Prediction
+            </h2>
+
+
+            <p>
+                Integrated workflow of the proposed intelligent
+                MFC battery system
+            </p>
+
+        </div>
+
+
+
+        <div class="architecture-flow">
+
+
+            <div class="architecture-card">
+
+                <div class="architecture-number">
+                    01
+                </div>
+
+
+                <div class="architecture-icon">
+                    ⚡
+                </div>
+
+
+                <h3>
+                    MFC
+                </h3>
+
+
+                <p>
+                    Microbial Fuel Cell generates electrical energy.
+                </p>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="architecture-card">
+
+                <div class="architecture-number">
+                    02
+                </div>
+
+
+                <div class="architecture-icon">
+                    🔋
+                </div>
+
+
+                <h3>
+                    Battery
+                </h3>
+
+
+                <p>
+                    Energy is stored for later utilization.
+                </p>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="architecture-card">
+
+                <div class="architecture-number">
+                    03
+                </div>
+
+
+                <div class="architecture-icon">
+                    📡
+                </div>
+
+
+                <h3>
+                    ESP32
+                </h3>
+
+
+                <p>
+                    Sensors collect voltage and temperature data.
+                </p>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="architecture-card">
+
+                <div class="architecture-number">
+                    04
+                </div>
+
+
+                <div class="architecture-icon">
+                    🧠
+                </div>
+
+
+                <h3>
+                    AI Model
+                </h3>
+
+
+                <p>
+                    Machine learning predicts future battery behavior.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section class="about-section" id="about">
+
+
+        <div class="about-content">
+
+
+            <span class="section-tag">
+                ABOUT THE PROJECT
+            </span>
+
+
+            <h2>
+                AI Integrated MFC Battery System
+            </h2>
+
+
+            <p>
+
+                This project proposes an intelligent energy storage
+                architecture that integrates a Microbial Fuel Cell,
+                battery storage, ESP32-based sensing and artificial
+                intelligence.
+
+            </p>
+
+
+            <p>
+
+                The ESP32 collects system parameters such as battery
+                voltage and temperature. These parameters are processed
+                by a machine-learning model to estimate future battery
+                behavior and support intelligent energy management.
+
+            </p>
+
+
+
+            <div class="simulation-notice">
+
+
+                <div class="notice-icon">
+                    ⚠️
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Prototype Simulation Notice
+                    </strong>
+
+
+                    <p>
+
+                        The current prototype uses a simulated MFC
+                        voltage input because the physical MFC
+                        generation module is not yet available.
+                        The simulated input is clearly identified
+                        throughout the dashboard and will be replaced
+                        with real MFC measurements in the final system.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+
+        <div class="footer-content">
+
+
+            <div>
+
+                <h3>
+                    ⚡ MFC<span>AI</span>
+                </h3>
+
+
+                <p>
+                    AI Integrated MFC Battery System
+                </p>
+
+            </div>
+
+
+            <div class="footer-tech">
+
+                <span>
+                    ESP32
+                </span>
+
+                <span>
+                    Python
+                </span>
+
+                <span>
+                    Flask
+                </span>
+
+                <span>
+                    Machine Learning
+                </span>
+
+                <span>
+                    Random Forest
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+                AI Integrated MFC Battery System © 2026
+            </p>
+
+
+            <p>
+                Intelligent Energy • Smart Prediction • Sustainable Technology
+            </p>
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
